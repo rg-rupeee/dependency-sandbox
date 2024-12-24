@@ -1,0 +1,15 @@
+{
+  "name": "dependency-sandbox",
+  "version": "1.0.0",
+  "description": "Quick Dependency Check",
+  "main": "index.js",
+  "repository": "https://github.com/rg-rupeee/dependency-sandbox",
+  "author": "rg-rupeee <rupeshgarhwal3920@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.10.2",
+    "fs-extra": "^11.2.0"
+  }
+}
