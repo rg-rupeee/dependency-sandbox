@@ -1,12 +1,19 @@
-import fs from 'fs-extra';
 import path from 'path';
+import fs from 'fs-extra';
+
 import { execSync } from 'child_process';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import Logger from './logger.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export async function createSandbox(dependencies: string[]) {
   const sandboxDir = path.resolve(__dirname, '../__sandbox__');
 
   try {
-    console.log('creating sandbox...');
+    Logger.blue('Creating Sandbox...');
 
     // Ensuring a clean directory for sandbox
     fs.emptyDirSync(sandboxDir);
@@ -26,15 +33,17 @@ export async function createSandbox(dependencies: string[]) {
     );
 
     // Installing dependencies
-    console.log('Installing Dependencies');
+    Logger.blue('Installing Dependencies');
     execSync(`npm install ${dependencies.join(' ')}`, {
       cwd: sandboxDir,
       stdio: 'inherit',
     });
 
-    console.log('Dependencies installed successfully');
-    console.log(`Sandbox ready at ${sandboxDir}`);
-  } catch (error) {
-    console.log('Failed to create sandbox: ', error);
+    Logger.green('Dependencies installed successfully');
+
+    Logger.magenta(`Sandbox ready at ${sandboxDir}`);
+  } catch (error: any) {
+    Logger.error('Failed to create sandbox');
+    Logger.logError(error);
   }
 }
