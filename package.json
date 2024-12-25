@@ -8,6 +8,12 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "build": "tsc",
+    "execute": "node dist/index.js",
+    "start": "yarn build && yarn execute",
+    "format": "eslint . --fix",
+    "clean:env": "ts-node scripts/removeDir.ts __sandbox__",
+    "clean:dist": "ts-node scripts/removeDir.ts dist",
     "dev": "ts-node src/index.ts"
   },
   "dependencies": {
@@ -18,7 +24,10 @@
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.10.2",
+    "@types/shelljs": "^0.8.15",
+    "shelljs": "^0.8.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "tslib": "^2.8.1"
   }
 }
