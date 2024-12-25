@@ -12,6 +12,7 @@
     "execute": "node dist/index.js",
     "start": "yarn build && yarn execute",
     "format": "eslint . --fix",
+    "clean": "yarn clean:env && yarn clean:dist",
     "clean:env": "ts-node scripts/removeDir.ts __sandbox__",
     "clean:dist": "ts-node scripts/removeDir.ts dist",
     "dev": "ts-node src/index.ts"
