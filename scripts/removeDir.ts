@@ -1,4 +1,4 @@
-import * as shell from 'shelljs';
+import shell from 'shelljs';
 
 // Get folder names from the command line arguments (all arguments after the script name)
 const folderNames = process.argv.slice(2);
@@ -10,6 +10,6 @@ if (folderNames.length === 0) {
 
 // Remove each specified folder
 folderNames.forEach((folderName) => {
-  shell.rm('-R', folderName);
+  shell.rm('-r', folderName); // Corrected rm command
   console.log(`Successfully removed the folder: ${folderName}`);
 });

@@ -1,3 +1,3 @@
-import { createSandbox } from './sandbox';
+import { createSandbox } from './sandbox.js';
 
 createSandbox(['lodash']);
