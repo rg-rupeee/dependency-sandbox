@@ -28,3 +28,6 @@ jspm_packages/
 
 # OS-specific files
 Thumbs.db
+
+# Sandbox Enviorment
+__sandbox__/

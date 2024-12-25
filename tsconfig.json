@@ -1,17 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ES2020",              // Target modern JavaScript (Node.js 14+ compatible)
-    "module": "CommonJS",            // Node.js uses CommonJS module system
-    "outDir": "./dist",              // Compiled JavaScript output folder
-    "rootDir": "./",                 // Root folder for source files
-    "strict": true,                  // Enable all strict type-checking options
-    "esModuleInterop": true,         // Allows default import compatibility with CommonJS
-    "forceConsistentCasingInFileNames": true, // Enforce consistent file naming
-    "skipLibCheck": true,            // Skip type-checking of declaration files
-    "resolveJsonModule": true,       // Enable importing JSON files as modules
-    "declaration": true,             // Generate .d.ts files for compiled files
-    "sourceMap": true                // Generate source maps for debugging
+    "target": "ES2020",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "sourceMap": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src", "bin"],          // Include source and bin directories for compilation
-  "exclude": ["node_modules", "dist"] // Exclude unnecessary files/folders
+  "include": ["src", "bin"],
+  "exclude": ["node_modules", "dist"]
 }

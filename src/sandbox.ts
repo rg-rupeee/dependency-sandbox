@@ -2,8 +2,8 @@ import fs from 'fs-extra';
 import path from 'path';
 import { execSync } from 'child_process';
 
-export async function createSandbox(dependencies: string[]) {
-  const sandboxDir = path.resolve(__dirname, '../sandbox');
+export async function createSandbox(dependencies: string[], config?: {}) {
+  const sandboxDir = path.resolve(__dirname, '../__sandbox__');
 
   try {
     console.log('creating sandbox...');

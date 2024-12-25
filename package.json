@@ -7,9 +7,18 @@
   "author": "rg-rupeee <rupeshgarhwal3920@gmail.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "dev": "ts-node src/index.ts"
+  },
   "dependencies": {
+    "chalk": "^5.4.1",
+    "fs-extra": "^11.2.0",
+    "ora": "^8.1.1"
+  },
+  "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.10.2",
-    "fs-extra": "^11.2.0"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
   }
 }
