@@ -1,5 +1,5 @@
 import inquirer from 'inquirer';
-import { REPLSandbox } from './modes/repl.js';
+import { ReplMode } from './modes/ReplMode.js';
 import { createSandbox } from './modes/sandbox.js';
 import Logger from './utils/logger.js';
 
@@ -27,8 +27,8 @@ interface IConfig {
 async function executeStrategy(packages: string[], config: IConfig) {
   if (config.mode === MODES.REPL) {
     Logger.blue('Starting REPL mode...');
-    const sandbox = new REPLSandbox();
-    await sandbox.start(packages);
+    const sandbox = new ReplMode();
+    await sandbox.run(packages);
   } else if (config.mode === MODES.PLAYGROUND) {
     Logger.blue('Starting Playground mode...');
     await createSandbox(packages);
