@@ -1,12 +1,9 @@
 import inquirer from 'inquirer';
-import { ReplMode } from './modes/ReplMode.js';
+import { Repl } from './modes/Repl.js';
 import Logger from './utils/logger.js';
-import PlaygroundMode from './modes/PlaygroundMode.js';
-
-export const MODES = {
-  REPL: 'repl',
-  PLAYGROUND: 'playground',
-};
+import Playground from './modes/Playground.js';
+import { MODES } from './constants.js';
+import { ModeFactory } from './modes/Factory.js';
 
 async function promptUser() {
   return await inquirer.prompt([
@@ -25,18 +22,9 @@ interface IConfig {
 }
 
 async function executeStrategy(packages: string[], config: IConfig) {
-  if (config.mode === MODES.REPL) {
-    Logger.blue('Starting REPL mode...');
-    const sandbox = new ReplMode();
-    await sandbox.run(packages);
-  } else if (config.mode === MODES.PLAYGROUND) {
-    Logger.blue('Starting Playground mode...');
-    const sandbox = new PlaygroundMode();
-    await sandbox.run(packages);
-  } else {
-    Logger.error('Invalid mode specified.');
-    process.exit(1);
-  }
+  const sandbox = ModeFactory.createMode(config.mode);
+  Logger.blue(`Starting ${config.mode} mode...`);
+  sandbox.run(packages);
 }
 
 export const action = async (packages: string[], options: any) => {

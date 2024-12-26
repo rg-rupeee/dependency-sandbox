@@ -6,7 +6,7 @@ import Logger from '../utils/logger.js';
 
 const require = createRequire(import.meta.url);
 
-export class ReplMode extends BaseMode {
+export class Repl extends BaseMode {
   constructor() {
     super();
   }
@@ -46,4 +46,4 @@ export class ReplMode extends BaseMode {
   }
 }
 
-export default ReplMode;
+export default Repl;

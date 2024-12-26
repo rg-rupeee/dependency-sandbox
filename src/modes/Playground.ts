@@ -1,7 +1,7 @@
 import { BaseMode } from './Base.js';
 import Logger from '../utils/logger.js';
 
-export class PlaygroundMode extends BaseMode {
+export class Playground extends BaseMode {
   constructor() {
     super();
   }
@@ -29,4 +29,4 @@ export class PlaygroundMode extends BaseMode {
   }
 }
 
-export default PlaygroundMode;
+export default Playground;
