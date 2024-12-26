@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import { start } from 'node:repl';
 import { createRequire } from 'node:module';
-import { BaseMode } from './BaseMode.js';
+import { BaseMode } from './Base.js';
 import Logger from '../utils/logger.js';
 
 const require = createRequire(import.meta.url);

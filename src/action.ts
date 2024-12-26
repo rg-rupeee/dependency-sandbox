@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 import { ReplMode } from './modes/ReplMode.js';
-import { createSandbox } from './modes/sandbox.js';
 import Logger from './utils/logger.js';
+import PlaygroundMode from './modes/PlaygroundMode.js';
 
 export const MODES = {
   REPL: 'repl',
@@ -31,7 +31,8 @@ async function executeStrategy(packages: string[], config: IConfig) {
     await sandbox.run(packages);
   } else if (config.mode === MODES.PLAYGROUND) {
     Logger.blue('Starting Playground mode...');
-    await createSandbox(packages);
+    const sandbox = new PlaygroundMode();
+    await sandbox.run(packages);
   } else {
     Logger.error('Invalid mode specified.');
     process.exit(1);
