@@ -11,6 +11,7 @@ export function bootstrap() {
     )
     .argument('<packages...>', 'npm package names to install and test')
     .option('-m, --mode <type>', 'execution mode: repl or playground')
+    .option('-p, --path <path>', 'specify path for installation')
     .option('-d, --default', 'use all default values and skip prompts')
     .action(action);
 
