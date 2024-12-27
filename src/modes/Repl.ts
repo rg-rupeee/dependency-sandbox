@@ -22,7 +22,6 @@ export class Repl extends BaseMode {
 
     const loadedDependencies: Record<string, any> = {};
     for (const pkg of packageNames) {
-      console.log(pkg);
       loadedDependencies[pkg] = sandboxRequire(pkg);
     }
 
