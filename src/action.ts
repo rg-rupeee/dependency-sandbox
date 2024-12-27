@@ -1,5 +1,5 @@
 import inquirer from 'inquirer';
-=import Logger from './utils/logger.js';
+import Logger from './utils/logger.js';
 import { MODES } from './constants.js';
 import { ModeFactory } from './modes/Factory.js';
 
