@@ -35,6 +35,12 @@ export class Repl extends BaseMode {
     });
 
     replServer.context.require = sandboxRequire;
+
+    replServer.on('close', async () => {
+      console.log('close');
+      console.log(this);
+      await this.deleteWorkspace();
+    });
   }
 
   async run(packageNames: string[]): Promise<void> {
