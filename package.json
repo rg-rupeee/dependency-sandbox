@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "execute": "node dist/bin/index.js",
+    "start": "node dist/bin/index.js",
     "format": "eslint . --fix",
     "clean": "yarn clean:env && yarn clean:dist",
     "clean:env": "tsx scripts/removeDir.ts __sandbox__",
