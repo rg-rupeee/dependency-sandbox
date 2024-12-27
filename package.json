@@ -19,7 +19,7 @@
     "build": "tsc",
     "start": "node dist/bin/index.js",
     "format": "eslint . --fix",
-    "clean": "yarn clean:env && yarn clean:dist",
+    "clean": "tsx scripts/removeDir.ts",
     "clean:env": "tsx scripts/removeDir.ts __sandbox__",
     "clean:dist": "tsx scripts/removeDir.ts dist",
     "dev": "tsx bin/index.ts",

@@ -1,6 +1,6 @@
 import inquirer from 'inquirer';
 import Logger from './utils/logger.js';
-import { MODES } from './constants.js';
+import { DEFAULT_PATH, MODES } from './constants.js';
 import { ModeFactory } from './modes/Factory.js';
 import { IConfig } from './modes/Base.js';
 
@@ -47,7 +47,7 @@ export const action = async (packages: string[], options: any) => {
   if (options.default) {
     Logger.info('Using default values...');
     config.mode = MODES.REPL;
-    config.path = '.';
+    config.path = DEFAULT_PATH;
   }
 
   if (!config.mode) {
