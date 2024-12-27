@@ -8,15 +8,17 @@
   "license": "MIT",
   "private": false,
   "type": "module",
+  "bin": {
+    "depxbox": "dist/bin/index.js"
+  },
   "scripts": {
     "build": "tsc",
-    "execute": "node dist/src/index.js",
-    "start": "yarn build && yarn execute",
+    "execute": "node dist/bin/index.js",
     "format": "eslint . --fix",
     "clean": "yarn clean:env && yarn clean:dist",
     "clean:env": "tsx scripts/removeDir.ts __sandbox__",
     "clean:dist": "tsx scripts/removeDir.ts dist",
-    "dev": "tsx src/index.ts"
+    "dev": "tsx bin/index.ts"
   },
   "dependencies": {
     "chalk": "^5.4.1",
