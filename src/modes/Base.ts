@@ -30,6 +30,16 @@ export abstract class BaseMode implements IMode {
 
     this.workingDir = path.join(resolve(process.cwd()), config.path);
     Logger.info(`Working Directory: ${this.workingDir}`);
+
+    const cleanup = (signal: string) => {
+      if (this.spinner.isSpinning) {
+        this.spinner.fail(`Process interrupted ${signal}`);
+      }
+    };
+
+    process.on('SIGINT', () => {
+      cleanup('SIGINT');
+    });
   }
 
   abstract run(packageNames: string[]): Promise<void>;
@@ -60,6 +70,17 @@ export abstract class BaseMode implements IMode {
     }
   }
 
+  protected async deleteWorkspace() {
+    this.spinner.start('Cleaning sandbox...');
+    try {
+      fs.removeSync(this.workingDir);
+    } catch (error: any) {
+      this.spinner.fail('Failed to delete sandbox');
+      throw error;
+    }
+    this.spinner.succeed('Sandbox cleaned successfully.');
+  }
+
   protected async installDependencies(dependencies: string[]): Promise<void> {
     Logger.blue('Installing Dependencies...');
     for (const dependency of dependencies) {
@@ -73,10 +94,10 @@ export abstract class BaseMode implements IMode {
       await execAsync(`npm install ${name}`, {
         cwd: this.workingDir,
       });
-      this.spinner.succeed(`Installed ${name}`);
     } catch (error: any) {
       this.spinner.fail(`Failed to install ${name}`);
       throw error;
     }
+    this.spinner.succeed(`Installed ${name}`);
   }
 }

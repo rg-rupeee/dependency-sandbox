@@ -23,7 +23,7 @@ async function promptUser(prompt: Prompts): Promise<string> {
         type: 'input',
         name: 'path',
         message: 'Enter the path:',
-        default: '.',
+        default: DEFAULT_PATH,
       });
       return path;
 
