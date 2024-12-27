@@ -3,8 +3,7 @@ import { start } from 'node:repl';
 import { createRequire } from 'node:module';
 import { BaseMode } from './Base.js';
 import Logger from '../utils/logger.js';
-
-const require = createRequire(import.meta.url);
+import path from 'node:path';
 
 export class Repl extends BaseMode {
   constructor() {
@@ -17,9 +16,14 @@ export class Repl extends BaseMode {
       Logger.blue(` - ${pkg}`);
     });
 
+    const sandboxRequire = createRequire(
+      path.join(this.workingDir, 'node_modules/')
+    );
+
     const loadedDependencies: Record<string, any> = {};
     for (const pkg of packageNames) {
-      loadedDependencies[pkg] = require(pkg);
+      console.log(pkg);
+      loadedDependencies[pkg] = sandboxRequire(pkg);
     }
 
     const replServer = start({
@@ -30,6 +34,8 @@ export class Repl extends BaseMode {
     Object.entries(loadedDependencies).forEach(([name, module]) => {
       replServer.context[name] = module;
     });
+
+    replServer.context.require = sandboxRequire;
   }
 
   async run(packageNames: string[]): Promise<void> {
