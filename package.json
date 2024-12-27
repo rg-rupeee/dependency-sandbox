@@ -11,6 +11,10 @@
   "bin": {
     "depxbox": "dist/bin/index.js"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc",
     "start": "node dist/bin/index.js",
@@ -18,7 +22,8 @@
     "clean": "yarn clean:env && yarn clean:dist",
     "clean:env": "tsx scripts/removeDir.ts __sandbox__",
     "clean:dist": "tsx scripts/removeDir.ts dist",
-    "dev": "tsx bin/index.ts"
+    "dev": "tsx bin/index.ts",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "chalk": "^5.4.1",
