@@ -2,11 +2,7 @@ import inquirer from 'inquirer';
 import Logger from './utils/logger.js';
 import { MODES } from './constants.js';
 import { ModeFactory } from './modes/Factory.js';
-
-interface IConfig {
-  mode: string;
-  path: string;
-}
+import { IConfig } from './modes/Base.js';
 
 type Prompts = keyof IConfig;
 
@@ -37,7 +33,7 @@ async function promptUser(prompt: Prompts): Promise<string> {
 }
 
 async function executeStrategy(packages: string[], config: IConfig) {
-  const sandbox = ModeFactory.createMode(config.mode);
+  const sandbox = ModeFactory.createMode(config);
   Logger.blue(`Starting ${config.mode} mode...`);
   sandbox.run(packages);
 }

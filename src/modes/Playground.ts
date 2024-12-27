@@ -1,9 +1,9 @@
-import { BaseMode } from './Base.js';
+import { BaseMode, IConfig } from './Base.js';
 import Logger from '../utils/logger.js';
 
 export class Playground extends BaseMode {
-  constructor() {
-    super();
+  constructor(config:IConfig ) {
+    super(config);
   }
 
   private createPlayground(packageNames: string[]): void {

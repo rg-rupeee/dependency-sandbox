@@ -1,13 +1,13 @@
 import chalk from 'chalk';
 import { start } from 'node:repl';
 import { createRequire } from 'node:module';
-import { BaseMode } from './Base.js';
+import { BaseMode, IConfig } from './Base.js';
 import Logger from '../utils/logger.js';
 import path from 'node:path';
 
 export class Repl extends BaseMode {
-  constructor() {
-    super();
+  constructor(config: IConfig) {
+    super(config);
   }
 
   private createREPL(packageNames: string[]): void {

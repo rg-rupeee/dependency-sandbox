@@ -6,11 +6,16 @@ import { promisify } from 'node:util';
 import path from 'node:path';
 import Logger from '../utils/logger.js';
 
+const execAsync = promisify(exec);
+
 export interface IMode {
   run(packageNames: string[]): Promise<void>;
 }
 
-const execAsync = promisify(exec);
+export interface IConfig {
+  mode: string;
+  path: string;
+}
 
 export interface PackageJson {
   dependencies: Record<string, string>;
@@ -20,9 +25,11 @@ export abstract class BaseMode implements IMode {
   protected spinner: Ora;
   protected workingDir: string;
 
-  constructor() {
+  constructor(config: IConfig) {
     this.spinner = ora();
-    this.workingDir = path.join(resolve(process.cwd()), '__sandbox__');
+
+    this.workingDir = path.join(resolve(process.cwd()), config.path);
+    Logger.info(`Working Directory: ${this.workingDir}`);
   }
 
   abstract run(packageNames: string[]): Promise<void>;
