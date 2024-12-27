@@ -22,7 +22,7 @@ npx depxbox <packages...>
 Or you can install it globally:
 
 ```bash
-npm install -g dependency-sandbox
+npm install -g depxbox
 ```
 
 ## Usage
@@ -73,7 +73,7 @@ npx depxbox axios --mode playground --path ./test-env
 ## Repository
 
 Check out the source code or contribute at:
-[GitHub Repository](https://github.com/rg-rupeee/dependency-sandbox)
+[GitHub Repository](https://github.com/rg-rupeee/depxbox)
 
 ## Author
 

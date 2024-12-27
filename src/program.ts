@@ -5,9 +5,9 @@ const program = new Command();
 
 export function bootstrap() {
   program
-    .name('dependency-sandbox')
+    .name('depxbox')
     .description(
-      'Test npm dependencies in a REPL session or Playground environment'
+      'Dependency Sandbox: test npm dependencies in a REPL session or Playground environment'
     )
     .argument('<packages...>', 'npm package names to install and test')
     .option('-m, --mode <type>', 'execution mode: repl or playground')

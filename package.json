@@ -1,9 +1,9 @@
 {
-  "name": "dependency-sandbox",
+  "name": "depxbox",
   "version": "1.0.0",
   "description": "Quick Dependency Check",
   "main": "index.js",
-  "repository": "https://github.com/rg-rupeee/dependency-sandbox",
+  "repository": "https://github.com/rg-rupeee/depxbox",
   "author": "rg-rupeee <rupeshgarhwal3920@gmail.com>",
   "license": "MIT",
   "private": false,
