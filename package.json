@@ -1,6 +1,6 @@
 {
   "name": "depxbox",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Quick Dependency Check",
   "main": "index.js",
   "repository": "https://github.com/rg-rupeee/depxbox",
