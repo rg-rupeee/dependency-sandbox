@@ -1,15 +1,64 @@
-# Depxbox
+# **Depxbox: Test Dependencies Without the Hassle**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Depxbox is a lightweight CLI tool to test npm dependencies in a REPL session or a Playground environment. Quickly spin up a sandboxed environment for any npm package and experiment without impacting your current project.
+**Depxbox** is a handy tool that makes testing npm packages super quick and easy. Whether you're trying out a new library or just need to debug something, depxbox takes care of the setup so you can jump straight into testing.
 
-## Features
+## **How It Works**
 
-- **REPL Mode**: Evaluate dependencies interactively in a REPL.
-- **Playground Mode**: Create a temporary workspace to test dependencies.
-- **Flexible Installation**: Specify custom installation paths.
-- **Default Mode**: Skip prompts and use default settings for a streamlined experience.
+Want to explore the `moment` library? Just run:
+
+```bash
+npx depxbox moment -d
+```
+
+That’s it! This command opens a terminal session where `moment` is already loaded. You can instantly try out methods, experiment, and see results right away.
+
+Here’s how you can add this example to demonstrate using `moment` in a Node.js REPL session:
+
+#### **Using `moment` in Node.js REPL Session**
+
+```bash
+sandbox> moment()
+Moment<2025-01-01T17:09:02+05:30>
+
+sandbox> moment().format()
+'2025-01-01T17:09:14+05:30'
+
+sandbox> moment().startOf('day')
+Moment<2025-01-01T00:00:00+05:30>
+```
+
+This example showcases how you can use `moment` for quick date manipulations directly within a REPL session.
+
+#### Alternatively, to create a repo with all the dependencies, simply run:
+
+```bash
+npx depxbox moment -m playground
+```
+
+Depxbox will create a new repository with `moment` installed in directory.
+
+## **Why Use Depxbox?**
+
+- **Instant Setup:** It creates a sandboxed environment with your chosen dependency, so you don’t have to mess with your existing project.
+- **Built-in REPL Mode:** Spin up a terminal session with the dependency preloaded. Test things out in real time without writing extra boilerplate code.
+- **Create a Repo with All Dependencies:** You can also use depxbox to generate a repository with all the packages you want installed, making it easy to start a project.
+- **Safe to Use:** Play around with packages risk-free—your current project stays untouched.
+
+## **Who Can Use Depxbox?**
+
+- Curious developers exploring new npm packages.
+- Teams debugging dependency issues without cluttering their repo.
+- Anyone who loves a quick and clean way to test libraries.
+
+Stop wasting time setting things up manually. With depxbox, you get a ready-to-go environment in seconds.
+
+### **Try It Out**
+
+```bash
+npx depxbox <dependency-name> -d
+```
 
 ## Installation
 
@@ -35,22 +84,13 @@ Test npm packages interactively:
 npx depxbox lodash axios
 ```
 
-### Options
+## Options
 
-- `-m, --mode <type>`: Specify execution mode (`repl` or `playground`).
-  ```bash
-  npx depxbox lodash --mode playground
-  ```
-
-- `-p, --path <path>`: Set a custom path for installation.
-  ```bash
-  npx depxbox lodash --path ./sandbox
-  ```
-
-- `-d, --default`: Use all default settings and skip interactive prompts.
-  ```bash
-  npx depxbox lodash --default
-  ```
+| Option              | Description                              | Example             |
+| ------------------- | ---------------------------------------- | ------------------- |
+| `-m, --mode <type>` | Set execution mode (`repl`/`playground`) | `--mode playground` |
+| `-p, --path <path>` | Custom installation directory            | `--path ./sandbox`  |
+| `-d, --default`     | Skip prompts, use defaults               | `--default`         |
 
 ## Examples
 
@@ -67,7 +107,19 @@ npx depxbox lodash --mode repl
 Create a sandbox to test `axios` in a separate directory:
 
 ```bash
-npx depxbox axios --mode playground --path ./test-env
+npx depxbox lodash --mode playground
+```
+
+### Custom Installation Path
+
+```bash
+npx depxbox lodash --path ./sandbox --mode repl
+```
+
+### Default Config
+
+```bash
+npx depxbox lodash --default
 ```
 
 ## Repository
