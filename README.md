@@ -9,7 +9,7 @@
 Want to explore the `moment` library? Just run:
 
 ```bash
-npx depxbox -d moment
+npx depxbox moment -d
 ```
 
 That’s it! This command opens a terminal session where `moment` is already loaded. You can instantly try out methods, experiment, and see results right away.
@@ -19,22 +19,31 @@ Here’s how you can add this example to demonstrate using `moment` in a Node.js
 #### **Using `moment` in Node.js REPL Session**
 
 ```bash
-sandbox> moment()                         // REPL session will have access to moment object
+sandbox> moment()
 Moment<2025-01-01T17:09:02+05:30>
 
-sandbox> moment().format()                // Format the current date and time as a string
+sandbox> moment().format()
 '2025-01-01T17:09:14+05:30'
 
-sandbox> moment().startOf('day')          // Get the start of the current day (midnight)
+sandbox> moment().startOf('day')
 Moment<2025-01-01T00:00:00+05:30>
 ```
 
 This example showcases how you can use `moment` for quick date manipulations directly within a REPL session.
 
+#### Alternatively, to create a repo with all the dependencies, simply run:
+
+```bash
+npx depxbox moment -m playground
+```
+
+Depxbox will create a new repository with `moment` installed in directory.
+
 ## **Why Use Depxbox?**
 
 - **Instant Setup:** It creates a sandboxed environment with your chosen dependency, so you don’t have to mess with your existing project.
 - **Built-in REPL Mode:** Spin up a terminal session with the dependency preloaded. Test things out in real time without writing extra boilerplate code.
+- **Create a Repo with All Dependencies:** You can also use depxbox to generate a repository with all the packages you want installed, making it easy to start a project.
 - **Safe to Use:** Play around with packages risk-free—your current project stays untouched.
 
 ## **Who Can Use Depxbox?**
@@ -48,7 +57,7 @@ Stop wasting time setting things up manually. With depxbox, you get a ready-to-g
 ### **Try It Out**
 
 ```bash
-npx depxbox -d <dependency-name>
+npx depxbox <dependency-name> -d
 ```
 
 ## Installation
@@ -75,24 +84,13 @@ Test npm packages interactively:
 npx depxbox lodash axios
 ```
 
-### Options
+## Options
 
-- `-m, --mode <type>`: Specify execution mode (`repl` or `playground`).
-
-  ```bash
-  npx depxbox lodash --mode playground
-  ```
-
-- `-p, --path <path>`: Set a custom path for installation.
-
-  ```bash
-  npx depxbox lodash --path ./sandbox
-  ```
-
-- `-d, --default`: Use all default settings and skip interactive prompts.
-  ```bash
-  npx depxbox lodash --default
-  ```
+| Option              | Description                              | Example             |
+| ------------------- | ---------------------------------------- | ------------------- |
+| `-m, --mode <type>` | Set execution mode (`repl`/`playground`) | `--mode playground` |
+| `-p, --path <path>` | Custom installation directory            | `--path ./sandbox`  |
+| `-d, --default`     | Skip prompts, use defaults               | `--default`         |
 
 ## Examples
 
@@ -109,7 +107,19 @@ npx depxbox lodash --mode repl
 Create a sandbox to test `axios` in a separate directory:
 
 ```bash
-npx depxbox axios --mode playground --path ./test-env
+npx depxbox lodash --mode playground
+```
+
+### Custom Installation Path
+
+```bash
+npx depxbox lodash --path ./sandbox --mode repl
+```
+
+### Default Config
+
+```bash
+npx depxbox lodash --default
 ```
 
 ## Repository
