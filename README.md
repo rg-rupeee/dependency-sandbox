@@ -1,4 +1,4 @@
-# **Depxbox: Test Dependencies Without the Hassle**
+# **Depxbox: Test Dependencies Quickly**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 

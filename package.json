@@ -2,19 +2,26 @@
   "name": "depxbox",
   "version": "1.1.2",
   "description": "Test npm packages super quick and easy.",
-  "main": "index.js",
+  "keywords": [
+    "sandbox",
+    "dependency-testing",
+    "repl",
+    "package-explorer",
+    "npm-sandbox",
+    "library-explorer",
+    "sandboxed-environment",
+    "npm-utility",
+    "instant-repl"
+  ],
   "repository": "https://github.com/rg-rupeee/depxbox",
   "author": "rg-rupeee <rupeshgarhwal3920@gmail.com>",
   "license": "MIT",
   "private": false,
   "type": "module",
+  "main": "index.js",
   "bin": {
     "depxbox": "dist/bin/index.js"
   },
-  "files": [
-    "dist",
-    "README.md"
-  ],
   "scripts": {
     "build": "tsc",
     "start": "node dist/bin/index.js",
@@ -42,5 +49,9 @@
     "tslib": "^2.8.1",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"
-  }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
 }
