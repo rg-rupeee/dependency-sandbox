@@ -1,6 +1,6 @@
 {
   "name": "depxbox",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Test npm packages super quick and easy.",
   "main": "index.js",
   "repository": "https://github.com/rg-rupeee/depxbox",
